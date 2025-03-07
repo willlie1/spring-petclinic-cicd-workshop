@@ -3,6 +3,11 @@
 
 name: Niek's meuk
 run-name: ${{ github.actor }} is kaas
+
+concurrency:
+  group: DEV
+  cancel-in-progress: true
+
 on:
   push:
     branches:
@@ -20,3 +25,12 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+  deploy-ding:
+    runs-on: ubuntu-latest
+    environment: DEV
+    needs: doe-dingen
+    steps:
+      - name: deploy
+        run: echo $DEPLOYMENT_VARIABLE
+        env:
+          DEPLOYMENT_VARIABLE: ${{ vars.DEPLOYMENT_VARIABLE }}
