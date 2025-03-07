@@ -32,4 +32,5 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Deploy to DEV
-        run: echo ${{DEV.DEPLOY_VARIABLE}}
+        environment: DEV
+        run: echo ${{DEPLOY_VARIABLE}}
