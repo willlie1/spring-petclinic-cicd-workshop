@@ -27,3 +27,4 @@ jobs:
         run: mvn -U verify sonar:sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_URL: https://sonarcloud.io
