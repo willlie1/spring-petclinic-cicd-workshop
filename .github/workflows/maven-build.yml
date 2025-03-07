@@ -28,3 +28,4 @@ jobs:
           mvn -U verify sonar:sonar \
           -Dmaven.test.skip=true \
           -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+          -Dsonar.verbose=true
