@@ -37,6 +37,4 @@ jobs:
     needs: doe-dingen
     steps:
       - name: deploy
-        run: echo $DEPLOYMENT_VARIABLE
-        env:
-          DEPLOYMENT_VARIABLE: ${{ vars.DEPLOYMENT_VARIABLE }}
+        run: echo ${{ vars.DEPLOYMENT_VARIABLE }}
