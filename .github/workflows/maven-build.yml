@@ -33,7 +33,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   deployment:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: DEV
     steps:
       - name: deploy
         run: echo ${{ DEPLOY_VARIABLE }}
