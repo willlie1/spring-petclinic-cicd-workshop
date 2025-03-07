@@ -36,4 +36,4 @@ jobs:
     environment: DEV
     steps:
       - name: deploy
-        run: echo ${{ DEPLOY_VARIABLE }}
+        run: echo ${{ env.DEPLOY_VARIABLE }}
