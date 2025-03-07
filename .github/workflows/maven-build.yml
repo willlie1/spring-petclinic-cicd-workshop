@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribution: 'openjdk'
+          distribution: 'adopt'
 
       # Step 3: Run the Maven verify phase
       - name: Run the Maven verify phase
