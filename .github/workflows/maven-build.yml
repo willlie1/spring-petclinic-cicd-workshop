@@ -34,7 +34,7 @@ jobs:
   deploy-ding:
     runs-on: ubuntu-latest
     environment: DEV
-    needs: doe-dingen
+#    needs: doe-dingen
     steps:
       - name: deploy
-        run: echo ${{ vars.DEPLOYMENT_VARIABLE }}
+        run: echo "${{ vars.DEPLOYMENT_VARIABLE }}"
