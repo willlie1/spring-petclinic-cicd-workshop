@@ -24,7 +24,7 @@ jobs:
           cache: maven
 
       - name: Building and running tests
-        run: mvn -U verify sonar:sonar -Dmaven.test.skip=true
+        run: mvn -U verify sonar:sonar -Dmaven.test.skip=true -Dsonar.organization=willie1 -Dsonar.projectKey=willie1_spring-petclinic-cicd-workshop
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
