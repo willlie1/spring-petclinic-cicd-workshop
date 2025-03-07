@@ -42,5 +42,3 @@ jobs:
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=willlie1_spring-petclinic-cicd-workshop \
             -Dsonar.projectName='spring-petclinic-cicd-workshop' \
-            -Dsonar.host.url=${{ env.SONAR_HOST_URL }}  # Reference the env variable correctly
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
