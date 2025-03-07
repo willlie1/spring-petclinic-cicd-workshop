@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Code checkout
+      # Step 1: Code checkout.
       - name: Checkout Code
         uses: actions/checkout@v2
 
