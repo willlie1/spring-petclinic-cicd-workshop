@@ -5,7 +5,7 @@ name: Niek's meuk
 run-name: ${{ github.actor }} is kaas
 
 concurrency:
-  group: DEV
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 on:
