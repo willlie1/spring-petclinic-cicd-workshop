@@ -23,15 +23,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Run the Maven verify phase
-        run: mvn clean install
+      - name: Building and running tests
+        run: "mvn clean install"
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5.0.0
-        with:
-          args: >
-            -Dsonar.organization=willie1
-            -Dsonar.projectKey=willie1_spring-petclinic-cicd-workshop
-        env:
-          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
-          SONAR_HOST_URL: "https://sonarcloud.io"
+        run: | 
+          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          -Dsonar.token=${{ secrets.SONARQUBE_TOKEN }} \
+          -Dsonar.organization=willie1 \
+          -Dsonar.projectKey=willie1_spring-petclinic-cicd-workshop
