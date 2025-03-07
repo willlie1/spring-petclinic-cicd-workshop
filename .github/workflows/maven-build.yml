@@ -24,6 +24,11 @@ jobs:
       - name: Run tests
         run: ./mvnw test
 
+      - name: Setup SonarQube
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: ./mvnw sonar:sonar
 #      - name: Setup SonarQube
 #        uses: sonarsource/sonarqube-scan-action@v4.1.0
 #        env:
