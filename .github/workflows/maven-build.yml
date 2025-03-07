@@ -30,5 +30,3 @@ jobs:
         run: |
           mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
-            -Dsonar.organization=willie1 \
-            -Dsonar.projectKey=willie1_spring-petclinic-cicd-workshop
