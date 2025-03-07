@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - jasper
   pull_request:
     branches:
       - main
+      - jasper
 
 jobs:
   build_and_sonar_scan:
