@@ -38,6 +38,9 @@
     <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version>
     <spring-format.version>0.0.43</spring-format.version>
 
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.projectKey>willlie1_spring-petclinic-cicd-workshop</sonar.projectKey>
+    <sonar.organization>willlie1</sonar.organization>
   </properties>
 
   <dependencies>
