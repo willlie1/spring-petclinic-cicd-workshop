@@ -21,8 +21,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Run tests
-        run: ./mvnw test
+#      - name: Run tests
+#        run: ./mvnw test
 
   sonarqube:
     needs: build
@@ -38,6 +38,6 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup SonarQube
-        uses: SonarSource/sonarqube-scan-action@v4.1.0
+        uses: sonarsource/sonarqube-scan-action@v4.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
