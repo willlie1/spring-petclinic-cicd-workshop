@@ -12,7 +12,7 @@ on:
   push:
     branches: [ "CICD_pipeline_amber" ]
   pull_request:
-    branches: [ "CICD_pipeline_amber ]
+    branches: [ "CICD_pipeline_amber" ]
 
 jobs:
   build:
