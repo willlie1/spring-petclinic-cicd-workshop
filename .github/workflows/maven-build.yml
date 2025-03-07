@@ -27,8 +27,8 @@ jobs:
         run: "mvn clean install"
 
       - name: SonarQube Scan
-        run: | 
-          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-          -Dsonar.token=${{ secrets.SONARQUBE_TOKEN }} \
-          -Dsonar.organization=willie1 \
-          -Dsonar.projectKey=willie1_spring-petclinic-cicd-workshop
+        run: |
+          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.0.0.4389 \
+            -Dsonar.token=${{ secrets.SONARQUBE_TOKEN }} \
+            -Dsonar.organization=willie1 \
+            -Dsonar.projectKey=willie1_spring-petclinic-cicd-workshop
