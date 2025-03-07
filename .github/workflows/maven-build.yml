@@ -18,30 +18,29 @@ jobs:
       # Step 1: Code checkout.
       - uses: actions/checkout@v4
 
-      # Step 2: Set up JDK 11
+      # Step 2: Set up JDK 17
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
           java-version: '17'
           distribution: 'adopt'
 
-      # Step 3: Run the Maven verify phase
-      - name: Run the Maven verify phase
+      # Step 3: Run the Maven verify phase (skip tests)
+      - name: Run the Maven verify phase (skip tests)
         run: mvn --batch-mode --update-snapshots verify -DskipTests
 
-      # Step 4: Build with Maven
-      - name: Build with Maven -DskipTests
+      # Step 4: Build with Maven (skip tests)
+      - name: Build with Maven (skip tests)
         run: mvn clean install -DskipTests
 
       # Step 5: SonarQube scan after build
       - name: SonarQube Analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io  # Correct URL without ${} syntax
+          SONAR_HOST_URL: https://sonarcloud.io  # Hardcode the URL here (without ${})
         run: |
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=my_project_key \
             -Dsonar.projectName='spring-petclinic-cicd-workshop' \
-            -Dsonar.host.url=${{ env.SONAR_HOST_URL }} \  # Correct reference to the environment variable
+            -Dsonar.host.url=${{ env.SONAR_HOST_URL }}  # Reference the env variable correctly
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-
