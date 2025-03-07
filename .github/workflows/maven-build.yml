@@ -8,12 +8,15 @@ on:
     branches:
       - 'feature/niek'
 jobs:
-  checkout:
+  doe-dingen:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Test
-        run: mvn clean test
-
+        run: mvn clean verify
+      - name: sonar
+        run: ./mvnw -U sonar:sonar
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 

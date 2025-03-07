@@ -16,6 +16,9 @@
   <name>petclinic</name>
 
   <properties>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.projectKey>willlie1_spring-petclinic-cicd-workshop</sonar.projectKey>
+    <sonar.organization>willlie1</sonar.organization>
 
     <!-- Generic properties -->
     <java.version>17</java.version>
