@@ -25,7 +25,6 @@ jobs:
 
       - name: Building and running tests
         run: |
-          mvn -U verify sonar:sonar \
-          -Dmaven.test.skip=true \
-          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
-          -Dsonar.verbose=true
+          mvn -U verify sonar:sonar -Dmaven.test.skip=true
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
