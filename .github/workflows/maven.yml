@@ -10,7 +10,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: feature/CICD_pipeline_amber
+    branches: feature/nikita
   pull_request:
     branches: [ "main" ]
 
