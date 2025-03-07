@@ -10,9 +10,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ feature/CICD_pipeline_amber ]
+    branches: [ "CICD_pipeline_amber" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "CICD_pipeline_amber" ]
 
 jobs:
   build:
