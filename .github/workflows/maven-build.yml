@@ -27,9 +27,6 @@ jobs:
   sonarqube:
     runs-on: windows-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v4
-
       - name: Setup SonarQube
         uses: SonarSource/sonarqube-scan-action@v4.1.0
         env:
