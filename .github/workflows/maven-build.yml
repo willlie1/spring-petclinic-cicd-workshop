@@ -27,20 +27,20 @@ jobs:
 
       # Step 3: Run the Maven verify phase
       - name: Run the Maven verify phase
-        run: mvn --batch-mode --update-snapshots verify
+        run: mvn --batch-mode --update-snapshots verify -DskipTests
 
       # Step 4: Build with Maven
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Build with Maven -DskipTests
+        run: mvn clean install -DskipTests
 
       # Step 5: SonarQube scan after build
       - name: SonarQube Analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_HOST_URL: ${{ https://sonarcloud.io }}
         run: |
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=my_project_key \
-            -Dsonar.projectName='My Project Name' \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+            -Dsonar.projectName='spring-petclinic-cicd-workshop' \
+            -Dsonar.host.url=${{ https://sonarcloud.io }} \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
