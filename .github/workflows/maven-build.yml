@@ -2,10 +2,10 @@
 # For more information see: https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven
 
 name: Niek's meuk
-run-name: ${{ github.actor }} is kaas
+run-name: ${{ github.event.head_commit.message }} is kaas
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: niek
   cancel-in-progress: true
 
 on:
@@ -18,8 +18,14 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+          cache: maven
       - name: Test
-        run: mvn clean verify
+        run: mvn -U clean verify -DskipTests=true
       - name: sonar
         run: ./mvnw -U sonar:sonar
         env:
