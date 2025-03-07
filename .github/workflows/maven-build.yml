@@ -24,9 +24,6 @@ jobs:
           cache: maven
 
       - name: Building and running tests
-        run: mvn clean install
-
-      - name: SonarQube Scan
-        run: mvn sonar:sonar
+        run: mvn -U verify sonar:sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
